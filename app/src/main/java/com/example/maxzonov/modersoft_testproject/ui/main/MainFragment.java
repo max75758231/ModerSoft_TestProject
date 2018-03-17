@@ -147,6 +147,12 @@ public class MainFragment extends MvpAppCompatFragment implements MainView {
         layoutMain.setVisibility(View.VISIBLE);
     }
 
+    @Override
+    public void onResponseError() {
+        Toast.makeText(activity, activity.getString(R.string.data_response_error),
+                Toast.LENGTH_LONG).show();
+    }
+
     private void initCategoryRecyclerView() {
         LinearLayoutManager layoutManagerCategory =
                 new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);

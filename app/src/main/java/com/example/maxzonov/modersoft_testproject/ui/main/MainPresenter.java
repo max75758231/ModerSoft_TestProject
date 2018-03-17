@@ -64,6 +64,7 @@ public class MainPresenter extends MvpPresenter<MainView> {
 
             @Override
             public void onFailure(Call<ResponseData> call, Throwable t) {
+                getViewState().onResponseError();
             }
         });
     }

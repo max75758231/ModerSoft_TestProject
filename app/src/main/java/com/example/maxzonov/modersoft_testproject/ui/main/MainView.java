@@ -18,4 +18,6 @@ public interface MainView extends MvpView {
     void configureToolbar(String imageUrl, String title);
 
     void hideSplashImage();
+
+    void onResponseError();
 }
