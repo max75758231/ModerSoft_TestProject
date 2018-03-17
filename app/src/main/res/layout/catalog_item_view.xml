@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/catalog_item_cv_height"
+        app:cardUseCompatPadding="true"
+        app:cardElevation="1dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/catalog_item_iv"
+                android:layout_width="@dimen/catalog_item_iv_width"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_menu_camera"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="@dimen/catalog_item_layout_spacing_16dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/catalog_item_tv_rating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/catalog_item_tv_spacing_8dp"
+                        android:layout_marginEnd="@dimen/catalog_item_tv_spacing_8dp"
+                        tools:text="4.5" />
+
+                    <RatingBar
+                        android:id="@+id/catalog_item_rb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:progressTint="@color/colorHeaderYellow"
+                        style="@style/Widget.AppCompat.RatingBar.Small"
+                        tools:rating="4.5"
+                        tools:targetApi="lollipop" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/catalog_item_tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorBlack"
+                    tools:text="Студия красоты блаблабла"/>
+
+                <TextView
+                    android:id="@+id/catalog_item_tv_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/catalog_item_tv_textsize_12sp"
+                    tools:text="Переулок такой-то, 9"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>
