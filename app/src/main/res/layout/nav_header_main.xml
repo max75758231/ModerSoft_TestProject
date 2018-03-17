@@ -5,22 +5,22 @@
     android:background="@color/colorHeaderGrey"
     android:gravity="bottom"
     android:orientation="horizontal"
-    android:paddingTop="50dp"
-    android:paddingLeft="@dimen/activity_margin"
-    android:paddingRight="@dimen/activity_margin"
-    android:paddingBottom="@dimen/activity_margin"
+    android:paddingTop="@dimen/nav_spacing_50dp"
+    android:paddingLeft="@dimen/nav_spacing_16dp"
+    android:paddingRight="@dimen/nav_spacing_16dp"
+    android:paddingBottom="@dimen/nav_spacing_16dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/nav_header_title"
-        android:textSize="20sp"
+        android:textSize="@dimen/nav_header_20sp"
         android:textColor="@color/colorWhite"
         android:textStyle="bold"
-        android:paddingRight="4dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:paddingEnd="4dp" />
+        android:paddingRight="@dimen/nav_spacing_4dp"
+        android:paddingEnd="@dimen/nav_spacing_4dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 
     <TextView
         android:layout_width="wrap_content"

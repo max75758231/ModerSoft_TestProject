@@ -14,12 +14,12 @@
     </style>
 
     <style name="TextViewTitle">
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">@dimen/main_title_22sp</item>
         <item name="android:textColor">@color/colorBlack</item>
     </style>
 
     <style name="TextViewSubtitle" parent="TextViewTitle">
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">@dimen/main_subtitle_14sp</item>
     </style>
 
 </resources>

@@ -4,9 +4,16 @@
     <dimen name="main_iv_header_height_200dp">200dp</dimen>
     <dimen name="main_layout_spacing_16dp">16dp</dimen>
 
+    <!-- Navigation bar -->
+
+    <dimen name="nav_spacing_4dp">4dp</dimen>
+    <dimen name="nav_spacing_16dp">16dp</dimen>
+    <dimen name="nav_spacing_50dp">50dp</dimen>
+
     <!-- Share cardview -->
 
-    <dimen name="share_cv_spacing_8dp">4dp</dimen>
+    <dimen name="share_cv_spacing_4dp">4dp</dimen>
+    <dimen name="share_cv_spacing_8dp">8dp</dimen>
     <dimen name="share_cv_spacing_16dp">16dp</dimen>
     <dimen name="share_tv_title_spacing_8dp">8dp</dimen>
     <dimen name="share_tv_label_spacing_8dp">8dp</dimen>
@@ -19,10 +26,12 @@
 
     <!-- Category cardview -->
 
-    <dimen name="category_cv_spacing_8dp">8dp</dimen>
+    <dimen name="category_spacing_8dp">8dp</dimen>
     <dimen name="category_tv_title_spacing_8dp">8dp</dimen>
     <dimen name="category_rv_spacing_16dp">16dp</dimen>
     <dimen name="category_rv_spacing_8dp">8dp</dimen>
+    <dimen name="category_frame_width_200dp">200dp</dimen>
+    <dimen name="category_frame_height_120dp">120dp</dimen>
 
     <!-- Catalog cardview -->
 
@@ -30,9 +39,17 @@
     <dimen name="catalog_tv_title_spacing_8dp">8dp</dimen>
     <dimen name="catalog_rv_spacing_16dp">16dp</dimen>
     <dimen name="catalog_item_tv_spacing_8dp">8dp</dimen>
-    <dimen name="catalog_item_tv_textsize_12sp">12sp</dimen>
     <dimen name="catalog_item_layout_spacing_16dp">16dp</dimen>
     <dimen name="catalog_item_iv_width">100dp</dimen>
     <dimen name="catalog_item_cv_height">130dp</dimen>
+    <dimen name="catalog_item_card_elevation_1dp">1dp</dimen>
+
+    <!-- Text sizes -->
+
+    <dimen name="main_count_16sp">16sp</dimen>
+    <dimen name="main_subtitle_14sp">14sp</dimen>
+    <dimen name="main_title_22sp">22sp</dimen>
+    <dimen name="nav_header_20sp">20sp</dimen>
+    <dimen name="catalog_item_tv_12sp">12sp</dimen>
 
 </resources>

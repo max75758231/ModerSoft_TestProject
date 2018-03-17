@@ -19,7 +19,8 @@
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="8dp">
+                android:padding="@dimen/share_cv_spacing_8dp"
+                android:layout_marginTop="@dimen/share_cv_spacing_8dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -44,6 +45,7 @@
                             android:id="@+id/main_tv_share_count"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:textSize="@dimen/main_count_16sp"
                             tools:text="10"/>
 
                     </LinearLayout>
@@ -52,8 +54,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:cardUseCompatPadding="true"
-                        android:layout_marginLeft="@dimen/share_cv_spacing_8dp"
-                        android:layout_marginRight="@dimen/share_cv_spacing_8dp"
+                        android:layout_marginLeft="@dimen/share_cv_spacing_4dp"
+                        android:layout_marginRight="@dimen/share_cv_spacing_4dp"
                         android:layout_marginBottom="@dimen/share_cv_spacing_16dp">
 
                         <LinearLayout
@@ -118,8 +120,8 @@
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/category_cv_spacing_8dp"
-                android:padding="@dimen/category_cv_spacing_8dp">
+                android:layout_marginTop="@dimen/category_spacing_8dp"
+                android:padding="@dimen/category_spacing_8dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -144,6 +146,7 @@
                             android:id="@+id/main_tv_category_count"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:textSize="@dimen/main_count_16sp"
                             tools:text="10"/>
 
                     </LinearLayout>
@@ -187,6 +190,7 @@
                             android:id="@+id/main_tv_catalog_count"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:textSize="@dimen/main_count_16sp"
                             tools:text="10"/>
                     </LinearLayout>
 
