@@ -1,7 +1,5 @@
 package com.example.maxzonov.modersoft_testproject.ui.main;
 
-import android.util.Log;
-
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
 import com.example.maxzonov.modersoft_testproject.model.Blocks;
@@ -25,13 +23,9 @@ public class MainPresenter extends MvpPresenter<MainView> {
 
     private static final String CITY_ID = "468902";
 
-    private ApiService apiService;
-
-    public MainPresenter() {
-        apiService = RetrofitClient.getApiService();
-    }
-
     public void getData() {
+
+        ApiService apiService = RetrofitClient.getApiService();
         Call<ResponseData> call = apiService.getJson(CITY_ID);
         call.enqueue(new Callback<ResponseData>() {
             @Override

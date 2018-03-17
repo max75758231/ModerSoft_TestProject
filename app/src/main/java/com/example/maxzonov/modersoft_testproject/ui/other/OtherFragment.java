@@ -17,8 +17,6 @@ import butterknife.ButterKnife;
 
 public class OtherFragment extends MvpAppCompatFragment {
 
-    private View view;
-
     private Activity activity;
 
     @Override
@@ -39,10 +37,11 @@ public class OtherFragment extends MvpAppCompatFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_other, container, false);
+        View view = inflater.inflate(R.layout.fragment_other, container, false);
         ButterKnife.bind(this, view);
 
         Toolbar toolbar = view.findViewById(R.id.toolbar);
+
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
 
         return view;

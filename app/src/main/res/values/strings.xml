@@ -11,8 +11,6 @@
     <!-- Navigation Bar -->
 
     <string name="nav_header_title">DIKIDI</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
     <string name="nav_category">Категории</string>
     <string name="nav_catalog">Каталог</string>
     <string name="nav_share">Акции</string>
