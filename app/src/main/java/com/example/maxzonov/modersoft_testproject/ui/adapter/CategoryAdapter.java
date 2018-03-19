@@ -35,10 +35,12 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
     @Override
     public void onBindViewHolder(@NonNull CategoryViewHolder holder, int position) {
-        holder.textView.setText(categories.get(position).getName());
+
+        Category category = categories.get(position);
+        holder.textView.setText(category.getName());
 
         Picasso.get()
-                .load(categories.get(position).getImage())
+                .load(category.getImage())
                 .into(holder.imageView);
     }
 

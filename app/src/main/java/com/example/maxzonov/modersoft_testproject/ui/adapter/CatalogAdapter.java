@@ -36,11 +36,13 @@ public class CatalogAdapter extends RecyclerView.Adapter<CatalogAdapter.CatalogV
 
     @Override
     public void onBindViewHolder(@NonNull CatalogViewHolder holder, int position) {
-        String name = catalogs.get(position).getName();
-        String rating = catalogs.get(position).getRating();
-        String street = catalogs.get(position).getStreet();
-        String house = catalogs.get(position).getHouse();
-        String imageUrl = catalogs.get(position).getImage().getImageUrl();
+
+        Catalog catalog = catalogs.get(position);
+        String name = catalog.getName();
+        String rating = catalog.getRating();
+        String street = catalog.getStreet();
+        String house = catalog.getHouse();
+        String imageUrl = catalog.getImage().getImageUrl();
 
         holder.textViewName.setText(name);
         holder.textViewRating.setText(rating);

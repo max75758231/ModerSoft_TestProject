@@ -6,6 +6,7 @@ import com.example.maxzonov.modersoft_testproject.model.Blocks;
 import com.example.maxzonov.modersoft_testproject.model.Catalog;
 import com.example.maxzonov.modersoft_testproject.model.Category;
 import com.example.maxzonov.modersoft_testproject.model.Data;
+import com.example.maxzonov.modersoft_testproject.model.List;
 import com.example.maxzonov.modersoft_testproject.model.ResponseData;
 import com.example.maxzonov.modersoft_testproject.model.Share;
 import com.example.maxzonov.modersoft_testproject.retrofit.ApiService;
@@ -70,10 +71,12 @@ public class MainPresenter extends MvpPresenter<MainView> {
         Random random = new Random();
         int randomShare = random.nextInt(Integer.parseInt(shareCount));
 
-        String shareLabel = share.getLists().get(randomShare).getName();
-        String shareImageUrl = share.getLists().get(randomShare).getIconUrl();
-        String shareCompanyIcon = share.getLists().get(randomShare).getCompanyImage();
-        String shareCompanyName = share.getLists().get(randomShare).getCompanyName();
+        List shareList = share.getLists().get(randomShare);
+
+        String shareLabel = shareList.getName();
+        String shareImageUrl = shareList.getIconUrl();
+        String shareCompanyIcon = shareList.getCompanyImage();
+        String shareCompanyName = shareList.getCompanyName();
 
         getViewState().showShare(shareCount, shareLabel, shareImageUrl, shareCompanyIcon, shareCompanyName);
     }
