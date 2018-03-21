@@ -32,6 +32,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.reactivex.disposables.CompositeDisposable;
 
 public class MainFragment extends MvpAppCompatFragment implements MainView {
 
@@ -56,6 +57,8 @@ public class MainFragment extends MvpAppCompatFragment implements MainView {
 
     private Activity activity;
 
+    private CompositeDisposable compositeDisposable;
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -69,6 +72,7 @@ public class MainFragment extends MvpAppCompatFragment implements MainView {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
+        compositeDisposable = new CompositeDisposable();
     }
 
     @Override
@@ -86,7 +90,7 @@ public class MainFragment extends MvpAppCompatFragment implements MainView {
         collapsingToolbarLayout = activity.findViewById(R.id.main_collapsing_toolbar);
 
         if (InternetConnection.isNetworkAvailable(activity)) {
-            mainPresenter.getData();
+            mainPresenter.getData(compositeDisposable);
         } else {
             Toast.makeText(activity, activity.getString(R.string.internet_connection_error),
                     Toast.LENGTH_LONG).show();
@@ -97,6 +101,8 @@ public class MainFragment extends MvpAppCompatFragment implements MainView {
     @Override
     public void onDestroy() {
         super.onDestroy();
+
+        compositeDisposable.clear();
 
         if (activity != null)
             activity = null;
@@ -148,7 +154,8 @@ public class MainFragment extends MvpAppCompatFragment implements MainView {
     }
 
     @Override
-    public void onResponseError() {
+    public void onResponseError(Throwable error) {
+        error.printStackTrace();
         Toast.makeText(activity, activity.getString(R.string.data_response_error),
                 Toast.LENGTH_LONG).show();
     }

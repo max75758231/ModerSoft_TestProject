@@ -15,53 +15,51 @@ import com.example.maxzonov.modersoft_testproject.retrofit.RetrofitClient;
 import java.util.ArrayList;
 import java.util.Random;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
 
 @InjectViewState
 public class MainPresenter extends MvpPresenter<MainView> {
 
     private static final String CITY_ID = "468902";
 
-    public void getData() {
+    public void getData(CompositeDisposable compositeDisposable) {
 
         ApiService apiService = RetrofitClient.getApiService();
-        Call<ResponseData> call = apiService.getJson(CITY_ID);
-        call.enqueue(new Callback<ResponseData>() {
-            @Override
-            public void onResponse(Call<ResponseData> call, Response<ResponseData> response) {
-                if (response.isSuccessful()) {
-                    Data data = response.body().getData();
-                    Blocks blocks = data.getBlocks();
-                    Share share = blocks.getShare();
+        compositeDisposable.add(apiService.getJson(CITY_ID)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(this::handleResponse, this::handleResponseError));
+    }
 
-                    chooseRandomShare(share);
+    private void handleResponse(ResponseData responseData) {
+        Data data = responseData.getData();
+        Blocks blocks = data.getBlocks();
+        Share share = blocks.getShare();
 
-                    String categoryCount = String.valueOf(blocks.getCategories().size());
+        chooseRandomShare(share);
 
-                    ArrayList<Category> categories = blocks.getCategories();
-                    ArrayList<Catalog> catalogs = blocks.getCatalogs();
+        String categoryCount = String.valueOf(blocks.getCategories().size());
 
-                    filterArray(catalogs);
+        ArrayList<Category> categories = blocks.getCategories();
+        ArrayList<Catalog> catalogs = blocks.getCatalogs();
 
-                    String catalogCount = String.valueOf(catalogs.size());
+        filterArray(catalogs);
 
-                    String mainHeaderImageUrl = data.getImage();
-                    String mainHeaderTitle = data.getTitle();
+        String catalogCount = String.valueOf(catalogs.size());
 
-                    getViewState().showCategory(categoryCount, categories);
-                    getViewState().showCatalog(catalogCount, catalogs);
-                    getViewState().configureToolbar(mainHeaderImageUrl, mainHeaderTitle);
-                    getViewState().hideSplashImage();
-                }
-            }
+        String mainHeaderImageUrl = data.getImage();
+        String mainHeaderTitle = data.getTitle();
 
-            @Override
-            public void onFailure(Call<ResponseData> call, Throwable t) {
-                getViewState().onResponseError();
-            }
-        });
+        getViewState().showCategory(categoryCount, categories);
+        getViewState().showCatalog(catalogCount, catalogs);
+        getViewState().configureToolbar(mainHeaderImageUrl, mainHeaderTitle);
+        getViewState().hideSplashImage();
+    }
+
+    private void handleResponseError(Throwable error) {
+        getViewState().onResponseError(error);
     }
 
     private void chooseRandomShare(Share share) {

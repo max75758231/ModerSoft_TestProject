@@ -19,5 +19,5 @@ public interface MainView extends MvpView {
 
     void hideSplashImage();
 
-    void onResponseError();
+    void onResponseError(Throwable error);
 }
